@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home / Employees Page</title>
+
+</head>
+<body>
+<h1>Сотрудники</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Идентификатор записи</th>
+        <th>Имя</th>
+        <th>Фам</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td><span th:text="${employee.id}"></span></td>
+        <td><span th:text="${employee.name}"></span></td>
+        <td><span th:text="${employee.secondName}"></span></td>
+        <td><a th:href="@{'/home/employees/{id}'(id=${employee.id})}">Перейти к сотруднику</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
